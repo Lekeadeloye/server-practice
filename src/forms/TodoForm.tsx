@@ -33,7 +33,6 @@ const TodoForm = () => {
       // });
       setError('root', {
         message: 'There was an error submitting form'
-        // This is a test
       })
     }
   };
