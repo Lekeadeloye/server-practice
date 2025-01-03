@@ -2,6 +2,7 @@ import { useState } from "react";
 import TaskForm from "../../../forms/TaskForm";
 import TaskCard from "../../TasksCard";
 import EditTaskForm from "../../../forms/EditTaskForm";
+import TodoForm from "../../../forms/TodoForm";
 
 const TodosContainer = () => {
 
@@ -33,10 +34,11 @@ const TodosContainer = () => {
   }
 
   return (
-    <section>
-      <TaskForm addTodo={addTodo} />
-      <h1>List of Tasks Todo:</h1>
-      <p>{greeting}</p>
+    <section className="flex justify-center p-">
+      {/* <h1>List of Tasks Todo:</h1> */}
+      {/* <TaskForm addTodo={addTodo} /> */}
+      <TodoForm/>
+      {/* <p>{greeting}</p> */}
       {todoList.map((task) => (
         <TaskCard task={task} key={task.id} deleteTodo={deleteTodo} />
       ))}

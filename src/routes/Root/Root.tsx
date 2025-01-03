@@ -1,25 +1,26 @@
 import { NavLink, Outlet} from "react-router-dom";
-import style from "./style";
+// import style from "./style";
 
-const { header, navbar, listItem, navLink } = style();
+// Below is how to use slots with tailwind variant is classes become too long
+// const { header, navbar, listItem, navLink } = style();
 
 const Root = () => {
   return (
     <>
-    <header className='flex justify-center items-center p-4'>
-      <nav className='flex gap-4 justify-between'>
-        <li className='list-none'>
-          <NavLink className='text-2xl underline' to='/'>
+    <header className='flex items-center p-4'>
+      <nav className='flex space-x-4 justify-around w-full text-2xl underline list-none'>
+        <li>
+          <NavLink to='/'>
             Home
           </NavLink>
         </li>
-        <li className={listItem()}>
-          <NavLink className='text-2xl underline' to='About'>
+        <li>
+          <NavLink to='About'>
             About
           </NavLink>
         </li>
-        <li className={listItem()}>
-          <NavLink className='text-2xl underline' to='Contact'>
+        <li>
+          <NavLink to='Contact'>
             Contact
           </NavLink>
         </li>

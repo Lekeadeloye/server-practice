@@ -20,10 +20,9 @@ const TaskForm = ({addTodo}) => {
 
   }
 
-
   return (
     <>
-      <section className="mt-10 flex justify-self-center	">
+      <section className="flex justify-self-center">
         <form onSubmit={onHandleSubmit} className="flex gap-2 items-center">
           <label className='' htmlFor="toDo">Task:
             <input 
