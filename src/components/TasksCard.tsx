@@ -1,16 +1,21 @@
+import { Todo } from "./ui/TodosContainer/TodosContainer";
 
+type TaskCardProps = {
+  task: Todo;
+  deleteTodo: (id: number) => void;
+};
 
-const TaskCard = ({task, deleteTodo}) => {
+const TaskCard = ({ task, deleteTodo }: TaskCardProps) => {
   return (
     <>
-      <section className="flex">
-        <p>{task.details}</p>
-        <div>
+      <section>
+        <li>
+          {task.details}
           <button onClick={() => deleteTodo(task.id)}>Delete</button>
-        </div>
+        </li>
       </section>
     </>
-  )
-}
+  );
+};
 
-export default TaskCard
+export default TaskCard;

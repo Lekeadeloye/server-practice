@@ -4,46 +4,50 @@ import TaskCard from "../../TasksCard";
 import EditTaskForm from "../../../forms/EditTaskForm";
 import TodoForm from "../../../forms/TodoForm";
 
+export type Todo = {
+  id: number;
+  details: string;
+  completed: boolean;
+  isEditing: boolean;
+};
+
 const TodosContainer = () => {
+  const [toDoList, setTodoList] = useState<Todo[]>([]);
 
-  const [todoList, setTodoList] = useState<Todo[]>([]);
-
-  type Todo = {
-    id: number,
-    details: string,
-    completed: boolean,
-    isEditing: boolean
-  }
-
-  const addTodo = todo => {
+  const addTodo = (todo: string) => {
     setTodoList([
-      ...todoList,
+      ...toDoList,
       {
-        id: Math.floor(Math.random()* 100),
+        id: Math.floor(Math.random() * 100),
         details: todo,
         completed: false,
-        isEditing: false
-      }
-    ])
-  }
+        isEditing: false,
+      },
+    ]);
+    console.log(toDoList);
+  };
 
   const greeting = import.meta.env.VITE_GREETING;
 
-  const deleteTodo = id => {
-    setTodoList(todoList.filter(task => task.id !== id))
-  }
+  const deleteTodo = (id: number) => {
+    setTodoList(toDoList.filter(task => task.id !== id));
+  };
 
   return (
-    <section className="flex justify-center p-">
+    <section className="flex flex-col gap-3 w-1/2 p-5">
+      <div>
+        <TodoForm addTodo={addTodo} />
+      </div>
       {/* <h1>List of Tasks Todo:</h1> */}
       {/* <TaskForm addTodo={addTodo} /> */}
-      <TodoForm/>
       {/* <p>{greeting}</p> */}
-      {todoList.map((task) => (
-        <TaskCard task={task} key={task.id} deleteTodo={deleteTodo} />
-      ))}
+      <div className="flex flex-col space-y-7">
+        {toDoList.map(task => (
+          <TaskCard task={task} key={task.id} deleteTodo={deleteTodo} />
+        ))}
+      </div>
     </section>
-  )
-}
+  );
+};
 
-export default TodosContainer
+export default TodosContainer;

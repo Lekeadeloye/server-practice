@@ -17,7 +17,6 @@ function App() {
 
   return (
     <>
-      {/* <h1 className="text-3xl font-bold underline text-blue-700">React Server Practice!{import.meta.env.VITE_GREETING} {import.meta.env.VITE_PORT}</h1> */}
       <RouterProvider router={router}></RouterProvider>
     </>
   )

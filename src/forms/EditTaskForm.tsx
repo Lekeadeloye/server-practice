@@ -1,8 +1,9 @@
 import { useState } from "react";
 
+
 const EditTaskForm = ({editTask}) => {
 
-  const [task, setTask] = useState<string>('');
+  const [task, setTask] = useState('');
 
   const onHandleChangeTask = ({target}) => {
     setTask(target.value)

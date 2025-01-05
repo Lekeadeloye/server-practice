@@ -2,7 +2,7 @@ import { useState } from "react";
 
 const TaskForm = ({addTodo}) => {
 
-  const [task, setTask] = useState<string>('');
+  const [task, setTask] = useState('');
 
   const onHandleChangeTask = ({target}) => {
     setTask(target.value)
